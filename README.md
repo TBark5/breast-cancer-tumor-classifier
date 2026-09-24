@@ -1,8 +1,18 @@
 # Breast Cancer Tumor Classification with Explainable AI
 
+[![Reproduce and test](https://github.com/TBark5/breast-cancer-tumor-classifier/actions/workflows/verify.yml/badge.svg)](https://github.com/TBark5/breast-cancer-tumor-classifier/actions/workflows/verify.yml)
+![Python 3.11 | 3.12](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)
+
 An end-to-end, reproducible comparison of logistic regression and random forests, with leakage-safe model selection, an untouched holdout evaluation, and SHAP explanations in an interactive Streamlit dashboard.
 
 > **Educational use only.** This project is not medically validated, is not a diagnostic system, and must not inform patient care. Its results describe a historical benchmark, not screening-population performance.
+
+## At a glance
+
+- **Selected model:** logistic regression, chosen by training-only cross-validation before the holdout was touched
+- **Holdout performance (114 samples):** 96.49% accuracy, 0.9960 ROC-AUC, 92.86% malignant recall
+- **Explainability:** SHAP explanations for every holdout sample, numerically checked for additivity
+- **Reproducible:** one command retrains, evaluates, regenerates every figure and this README, and runs the test suite, also in CI on every push
 
 ## Motivation and data
 
@@ -15,6 +25,13 @@ The [UCI Wisconsin Diagnostic Breast Cancer dataset](https://archive.ics.uci.edu
 ## Quick start
 
 Tested with **Python 3.12.14 on Windows**. Python 3.11 or 3.12 is recommended for the pinned dependency set. No external dataset download or account is required at runtime.
+
+```bash
+git clone https://github.com/TBark5/breast-cancer-tumor-classifier.git
+cd breast-cancer-tumor-classifier
+```
+
+Windows (PowerShell):
 
 ```powershell
 py -3.12 -m venv .venv
@@ -120,8 +137,11 @@ Confusion matrix, rows actual / columns predicted, both ordered **benign, malign
 [3, 39]
 ```
 
-![Holdout ROC curve](figures/roc_curve.png)
-![Global SHAP importance](figures/shap_global_bar.png)
+| Holdout ROC curve | Confusion matrix |
+|---|---|
+| ![Holdout ROC curve](figures/roc_curve.png) | ![Confusion matrix](figures/confusion_matrix.png) |
+| **Global SHAP importance** | **SHAP beeswarm** |
+| ![Global SHAP importance](figures/shap_global_bar.png) | ![SHAP beeswarm](figures/shap_beeswarm.png) |
 
 ## Reading the visualizations
 
@@ -172,7 +192,6 @@ The historical sample is small and not a representative screening cohort. There 
 
 Tests cover dimensions and mappings; reproducible, disjoint stratified splits; fold-specific preprocessing; model-selection rule; prediction shape, range and class labels; model serialization; linear and tree explanation paths; legacy and modern SHAP shapes; all PNG/SVG/JSON/CSV/NPZ artifacts; a smaller isolated end-to-end run; and Streamlit navigation and sample selection. Streamlit's AppTest runs all sections without needing a browser. The full command runs this suite after creating artifacts.
 
-## Resume bullet options
+## Dataset citation
 
-- **Technical:** Built a reproducible scikit-learn classification pipeline comparing logistic regression and random forests with five-fold training-only model selection, achieving **96.49% holdout accuracy and 0.9960 ROC-AUC**; implemented numerically verified SHAP explanations, automated tests, and a Streamlit dashboard.
-- **Biology-focused:** Analyzed cell-nucleus measurements from 569 fine-needle aspirate samples in the Wisconsin diagnostic benchmark, using interpretable machine learning to classify dataset labels with **96.49% holdout accuracy and 0.9960 ROC-AUC**, while distinguishing statistical associations from biological causation and clinical validation.
+W. Wolberg, O. Mangasarian, N. Street, and W. Street. *Breast Cancer Wisconsin (Diagnostic)*. UCI Machine Learning Repository, 1993. https://doi.org/10.24432/C5DW2B. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
