@@ -1,0 +1,214 @@
+{
+  "selected_model": "logistic_regression",
+  "selection_rule": "Highest training CV mean ROC-AUC; exact ties favor logistic regression",
+  "seed": 42,
+  "folds": 5,
+  "mapping": {
+    "original": {
+      "0": "Malignant",
+      "1": "Benign"
+    },
+    "modeling": {
+      "0": "Benign",
+      "1": "Malignant"
+    }
+  },
+  "smoke_configuration": false,
+  "cross_validation": {
+    "logistic_regression": {
+      "parameters": {
+        "classifier__C": 1
+      },
+      "metrics": {
+        "roc_auc": {
+          "mean": 0.9957688338493291,
+          "std": 0.004665698474904977,
+          "folds": [
+            0.9948400412796697,
+            0.9989680082559339,
+            1.0,
+            0.9871001031991744,
+            0.9979360165118679
+          ]
+        },
+        "accuracy": {
+          "mean": 0.9736263736263737,
+          "std": 0.014906219743132443,
+          "folds": [
+            0.9560439560439561,
+            0.967032967032967,
+            1.0,
+            0.978021978021978,
+            0.967032967032967
+          ]
+        },
+        "precision": {
+          "mean": 0.9771428571428572,
+          "std": 0.027994168488950616,
+          "folds": [
+            1.0,
+            0.9428571428571428,
+            1.0,
+            1.0,
+            0.9428571428571428
+          ]
+        },
+        "recall": {
+          "mean": 0.9529411764705882,
+          "std": 0.03989605872426629,
+          "folds": [
+            0.8823529411764706,
+            0.9705882352941176,
+            1.0,
+            0.9411764705882353,
+            0.9705882352941176
+          ]
+        },
+        "f1": {
+          "mean": 0.9640480895915677,
+          "std": 0.020700447685741707,
+          "folds": [
+            0.9375,
+            0.9565217391304348,
+            1.0,
+            0.9696969696969697,
+            0.9565217391304348
+          ]
+        }
+      }
+    },
+    "random_forest": {
+      "parameters": {
+        "classifier__max_depth": null,
+        "classifier__max_features": "sqrt",
+        "classifier__min_samples_leaf": 1,
+        "classifier__n_estimators": 150
+      },
+      "metrics": {
+        "roc_auc": {
+          "mean": 0.9884932920536634,
+          "std": 0.006960399888097926,
+          "folds": [
+            0.9824561403508771,
+            1.0,
+            0.9927760577915377,
+            0.9855521155830754,
+            0.9816821465428277
+          ]
+        },
+        "accuracy": {
+          "mean": 0.9626373626373628,
+          "std": 0.014906219743132469,
+          "folds": [
+            0.9560439560439561,
+            0.989010989010989,
+            0.945054945054945,
+            0.9560439560439561,
+            0.967032967032967
+          ]
+        },
+        "precision": {
+          "mean": 0.9637587894395295,
+          "std": 0.011356287249804036,
+          "folds": [
+            0.96875,
+            0.9714285714285714,
+            0.967741935483871,
+            0.9411764705882353,
+            0.9696969696969697
+          ]
+        },
+        "recall": {
+          "mean": 0.9352941176470588,
+          "std": 0.03901911518065177,
+          "folds": [
+            0.9117647058823529,
+            1.0,
+            0.8823529411764706,
+            0.9411764705882353,
+            0.9411764705882353
+          ]
+        },
+        "f1": {
+          "mean": 0.948875692006585,
+          "std": 0.02096152854779826,
+          "folds": [
+            0.9393939393939394,
+            0.9855072463768116,
+            0.9230769230769231,
+            0.9411764705882353,
+            0.9552238805970149
+          ]
+        }
+      }
+    }
+  },
+  "selected_parameters": {
+    "C": 1,
+    "class_weight": null,
+    "dual": false,
+    "fit_intercept": true,
+    "intercept_scaling": 1,
+    "l1_ratio": null,
+    "max_iter": 5000,
+    "multi_class": "deprecated",
+    "n_jobs": null,
+    "penalty": "l2",
+    "random_state": 42,
+    "solver": "lbfgs",
+    "tol": 0.0001,
+    "verbose": 0,
+    "warm_start": false
+  },
+  "preprocessing": {
+    "imputation": "median; missing marker is NaN",
+    "standard_scaling": true
+  },
+  "holdout": {
+    "accuracy": 0.9649122807017544,
+    "precision": 0.975,
+    "recall": 0.9285714285714286,
+    "f1": 0.9512195121951219,
+    "specificity": 0.9861111111111112,
+    "roc_auc": 0.996031746031746,
+    "average_precision": 0.994273631904294,
+    "confusion_matrix": [
+      [
+        71,
+        1
+      ],
+      [
+        3,
+        39
+      ]
+    ],
+    "threshold": 0.5,
+    "classification_report": {
+      "Benign": {
+        "precision": 0.9594594594594594,
+        "recall": 0.9861111111111112,
+        "f1-score": 0.9726027397260274,
+        "support": 72.0
+      },
+      "Malignant": {
+        "precision": 0.975,
+        "recall": 0.9285714285714286,
+        "f1-score": 0.9512195121951219,
+        "support": 42.0
+      },
+      "accuracy": 0.9649122807017544,
+      "macro avg": {
+        "precision": 0.9672297297297296,
+        "recall": 0.9573412698412699,
+        "f1-score": 0.9619111259605746,
+        "support": 114.0
+      },
+      "weighted avg": {
+        "precision": 0.9651849217638692,
+        "recall": 0.9649122807017544,
+        "f1-score": 0.9647247085304307,
+        "support": 114.0
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "class": "Malignant",
+  "scale": "log-odds",
+  "max_additivity_error": 3.552713678800501e-15,
+  "background": "SHAP deterministic subsample of training-only transformed features",
+  "local_examples": [
+    {
+      "sample_id": 250.0,
+      "actual": 1.0,
+      "predicted": 1.0,
+      "malignancy_probability": 0.9999999892534014,
+      "base_value": 0.9088969365876407,
+      "sum_contributions": 17.439779590826408
+    },
+    {
+      "sample_id": 120.0,
+      "actual": 0.0,
+      "predicted": 0.0,
+      "malignancy_probability": 0.0003645681159627,
+      "base_value": 0.9088969365876407,
+      "sum_contributions": -8.82532945090573
+    }
+  ]
+}
