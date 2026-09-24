@@ -2,6 +2,7 @@
 
 [![Reproduce and test](https://github.com/TBark5/breast-cancer-tumor-classifier/actions/workflows/verify.yml/badge.svg)](https://github.com/TBark5/breast-cancer-tumor-classifier/actions/workflows/verify.yml)
 ![Python 3.11 | 3.12](https://img.shields.io/badge/python-3.11%20%7C%203.12-blue)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 An end-to-end, reproducible comparison of logistic regression and random forests, with leakage-safe model selection, an untouched holdout evaluation, and SHAP explanations in an interactive Streamlit dashboard.
 
@@ -195,3 +196,7 @@ Tests cover dimensions and mappings; reproducible, disjoint stratified splits; f
 ## Dataset citation
 
 W. Wolberg, O. Mangasarian, N. Street, and W. Street. *Breast Cancer Wisconsin (Diagnostic)*. UCI Machine Learning Repository, 1993. https://doi.org/10.24432/C5DW2B. Licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+
+## License
+
+Code is released under the [MIT License](LICENSE). The dataset remains under its original CC BY 4.0 license.
